@@ -1,0 +1,57 @@
+<mvc:View controllerName="br.com.idxtecDicionarioDados.controller.App" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns="sap.m"
+	xmlns:t="sap.ui.table">
+	<App>
+		<pages>
+			<Page title="Dicionario de Dados">
+				<content>
+					<t:TreeTable id="table"
+						rows="{ path: 'model>/entityType/', parameters: {arrayNames:['property','navigationProperty']}}"
+						alternateRowColors="false" class="sapUiSizeCompact"
+						visibleRowCount="15"
+						selectionMode="Single">
+						<t:toolbar>
+							<Toolbar>
+								<Title text="Schema namespace : {model>/namespace}"/>
+								<ToolbarSpacer/>
+								<SearchField
+									placeholder="Pesquisar Tabela..."
+									search="handleFilter"
+									width="25rem"/>
+							</Toolbar>
+						</t:toolbar>
+						<t:columns>
+							<t:Column >
+								<Label text="Tabela"/>
+								<t:template>
+									<Text text="{model>name}" />
+								</t:template>
+							</t:Column>
+							<t:Column>
+								<Label text="Tipo"/>
+								<t:template>
+									<Text text="{model>type}"/>
+								</t:template>
+							</t:Column>
+							<t:Column>
+								<Label text="Tamanho"/>
+								<t:template>
+									<Text text="{model>maxLength}"/>
+								</t:template>
+							</t:Column>
+							<t:Column>
+								<Label text="Obrigatorio ?"/>
+								<t:template>
+									<CheckBox selected="{model>nullable}" editable="false"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:TreeTable>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,2 +1,2 @@
 # DicionarioDados
-Dicionario Dados Metadata
+Dicionario Dados do Metadata
